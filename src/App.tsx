@@ -4,6 +4,7 @@ import "./App.css";
 function App() {
   const [searchedWord, setSearchedWord] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [wordInfo, setWordInfo] = useState<Word[]>([]);
 
   const fetchDrinks = async (searchWord: string) => {
     try {
@@ -17,13 +18,13 @@ function App() {
         );
         throw new Error("No Definitions Found");
       }
-
       const word = await resp.json();
-      console.log("word from dictionary api", word);
+      setWordInfo(word);
     } catch (error) {
       console.log("Failed to fetch data", error);
     }
   };
+  console.log(wordInfo)
 
   const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchedWord(event.currentTarget.value);
