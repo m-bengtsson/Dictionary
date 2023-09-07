@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+anteckningar.txt
+uppgiften.txt
 
 # Editor directories and files
 .vscode/*
