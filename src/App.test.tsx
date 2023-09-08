@@ -77,9 +77,27 @@ it("should display 'Please enter a word to search for definitions.'  when the se
   const searchButton = screen.getByRole("button", {
     name: "Search",
   });
-// Wait for user to click on Search-button
+  // Wait for user to click on Search-button
   await userEvent.click(searchButton);
   expect(
     screen.getByText("Please enter a word to search for definitions.")
   ).toBeVisible();
+});
+
+// Tests if the searched word is displayed when submitting an existing word from the API
+it("should render the searched word 'hello' if it exists", async () => {
+  render(<App />);
+  // Make a user to simulate user-activity
+  const user = userEvent.setup();
+  const input = screen.getByPlaceholderText("search for a word..");
+
+  // Wait for user to enter a word
+  await user.type(input, "hello");
+
+  const searchButton = screen.getByRole("button", {
+    name: "Search",
+  });
+  // Wait for user to click on Search-button and expect "hello" to be rendered
+  await user.click(searchButton);
+  expect(screen.getByText("hello")).toBeInTheDocument();
 });
