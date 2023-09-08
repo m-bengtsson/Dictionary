@@ -4,6 +4,8 @@ import { setupServer } from "msw/node";
 import userEvent from "@testing-library/user-event";
 
 import App from "./App";
+
+// Mocked Server to simulate APi requests
 const server = setupServer(
   rest.get(
     "https://api.dictionaryapi.dev/api/v2/entries/en/hello",
@@ -60,20 +62,25 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
+// Tests if header "Dictionary" is visible on the page
 it("should display the word 'Dictionary", () => {
   render(<App />);
+  // Get the text "Dictionary" and expect it to be visible
   const message = screen.queryByText("Dictionary");
   expect(message).toBeVisible();
 });
 
+// Tests if the page displays an error message when user hit search before entering a word.
 it("should display 'Please enter a word to search for definitions.' when user click search before entering a word", async () => {
   render(<App />);
+  // Make a user to simulate user-activity
   const user = userEvent.setup();
+
   expect(screen.queryByText("Dictionary")).toBeVisible();
   const searchButton = screen.getByRole("button", {
     name: "Search",
   });
-
+// Wait for user to click on Search-button
   await user.click(searchButton);
   expect(
     screen.queryByText("Please enter a word to search for definitions.")
