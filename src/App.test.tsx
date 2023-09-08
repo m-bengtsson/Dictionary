@@ -66,23 +66,20 @@ afterAll(() => server.close());
 it("should display the word 'Dictionary", () => {
   render(<App />);
   // Get the text "Dictionary" and expect it to be visible
-  const message = screen.queryByText("Dictionary");
-  expect(message).toBeVisible();
+  expect(screen.getByText("Dictionary")).toBeVisible();
 });
 
 // Tests if the page displays an error message when user hit search before entering a word.
-it("should display 'Please enter a word to search for definitions.' when user click search before entering a word", async () => {
+it("should display 'Please enter a word to search for definitions.'  when the search button is clicked without entering a word", async () => {
   render(<App />);
-  // Make a user to simulate user-activity
-  const user = userEvent.setup();
 
-  expect(screen.queryByText("Dictionary")).toBeVisible();
+  expect(screen.getByText("Dictionary")).toBeVisible();
   const searchButton = screen.getByRole("button", {
     name: "Search",
   });
 // Wait for user to click on Search-button
-  await user.click(searchButton);
+  await userEvent.click(searchButton);
   expect(
-    screen.queryByText("Please enter a word to search for definitions.")
+    screen.getByText("Please enter a word to search for definitions.")
   ).toBeVisible();
 });
