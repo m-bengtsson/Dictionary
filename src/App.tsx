@@ -25,7 +25,6 @@ function App() {
       console.log("Failed to fetch data", error);
     }
   };
-  //console.log(wordInfo)
 
   const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchedWord(event.currentTarget.value);
