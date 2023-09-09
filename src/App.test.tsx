@@ -62,6 +62,8 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
+
+
 // Tests if header "Dictionary" is visible on the page
 it("should display the word 'Dictionary", () => {
   render(<App />);

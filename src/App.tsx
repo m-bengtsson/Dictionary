@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from "react";
 
-import "./App.css";
+//import "./App.css";
 import WordInfo from "./components/WordInfo";
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
         );
       } else {
          const word = await resp.json();
+         
          setWordInfo(word);
       }
     } catch (error) {
