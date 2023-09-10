@@ -23,9 +23,10 @@ function App() {
         `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`
       );
       if (resp.status === 404) {
-        setErrorMessage(
+         setWordInfo([])
+         setErrorMessage(
           "Sorry pal, we couldn't find definitions for the word you were looking for."
-        );
+          );
       } else {
          const word = await resp.json();
          
@@ -45,6 +46,7 @@ function App() {
       setErrorMessage("Please enter a word to search for definitions.");
     } else {
       fetchWord(searchedWord);
+      wordInfo && setErrorMessage("")
     }
   };
 
@@ -53,11 +55,9 @@ function App() {
    <GlobalStyles />
     <Container>
       <h1>Dictionary</h1>
-      <StyledInput>
       <input placeholder="search for a word.." onChange={inputHandler} />
 
       <button onClick={onSubmit}>Search</button>
-      </StyledInput>
       {errorMessage && <p>{errorMessage}</p>}
       <WordInfo wordInfo={wordInfo}/>
     </Container>
