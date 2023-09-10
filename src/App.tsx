@@ -46,10 +46,10 @@ function App() {
       <p> SEARCH AND DISCOVER</p>
    </TopContainer>
       <Container>
-         <h1>Dictionary</h1>
+         <h1>Free Dictionary</h1>
          <Input onSubmit={onSubmit} setSearchedWord={setSearchedWord}/>
-
       </Container>
+
       {errorMessage && <p>{errorMessage}</p>}
       <WordInfo wordInfo={wordInfo}/>
     </>
