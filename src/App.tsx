@@ -1,18 +1,10 @@
 import { useState, ChangeEvent } from "react";
 
-//import "./App.css";
 import WordInfo from "./components/WordInfo";
 import GlobalStyles from "./components/styles/Global";
-import {Container} from "./components/styles/Container";
+import { Container } from "./components/styles/Container";
 import Input from "./components/Input";
 
-
-
-const theme = {
-   colors:{
-
-   }
-}
 
 function App() {
   const [searchedWord, setSearchedWord] = useState("");
