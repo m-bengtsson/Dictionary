@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
 
 import WordInfo from "./components/WordInfo";
 import GlobalStyles from "./components/styles/Global";
@@ -29,10 +29,6 @@ function App() {
     } catch (error) {
       console.log("Failed to fetch data", error);
     }
-  };
-
-  const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchedWord(event.currentTarget.value);
   };
 
   const onSubmit = () => {
