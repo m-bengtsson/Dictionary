@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { ReactNode, createContext, useState } from "react";
 
 export type FavoritesContextType = {
   favoriteWords: string[];
@@ -8,8 +8,13 @@ export type FavoritesContextType = {
 
 export const FavoritesContext = createContext<Partial<FavoritesContextType>>({})
 
+// Define the children props for the contextprovider
+type Props = {
+   children: ReactNode;
+}
 
-/* const FavoritesContextProvider = ({ children } ) => {
+// Define context provider
+const FavoritesContextProvider = ({ children } : Props) => {
   const [favoriteWords, setFavoriteWords] = useState<string[]>([]);
 
   const addFavoriteWord = (selectedWord : string) => {
@@ -27,6 +32,6 @@ export const FavoritesContext = createContext<Partial<FavoritesContextType>>({})
   };
 
   return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>;
-}; */
+}; 
 
-//export default FavoritesContextProvider;
+export default FavoritesContextProvider;

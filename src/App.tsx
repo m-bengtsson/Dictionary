@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import WordInfo from "./components/WordInfo";
 import GlobalStyles from "./components/styles/Global";
-import { Container } from "./components/styles/Container";
+import { Container, TopContainer } from "./components/styles/Styled";
 import Input from "./components/Input";
 
 function App() {
@@ -42,12 +42,16 @@ function App() {
   return (
    <>
    <GlobalStyles />
-    <Container>
-      <h1>Dictionary</h1>
-      <Input onSubmit={onSubmit} setSearchedWord={setSearchedWord}/>
+   <TopContainer>
+      <p> SEARCH AND DISCOVER</p>
+   </TopContainer>
+      <Container>
+         <h1>Dictionary</h1>
+         <Input onSubmit={onSubmit} setSearchedWord={setSearchedWord}/>
+
+      </Container>
       {errorMessage && <p>{errorMessage}</p>}
       <WordInfo wordInfo={wordInfo}/>
-    </Container>
     </>
   );
 }

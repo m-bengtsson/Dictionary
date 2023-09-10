@@ -8,7 +8,6 @@ function WordItem({word} :WordItemProps ) {
   return (
     <div className="">
       <h2>{word.word}</h2>
-
     </div>
   );
 }
