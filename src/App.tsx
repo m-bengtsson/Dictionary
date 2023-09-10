@@ -5,7 +5,6 @@ import GlobalStyles from "./components/styles/Global";
 import { Container } from "./components/styles/Container";
 import Input from "./components/Input";
 
-
 function App() {
   const [searchedWord, setSearchedWord] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -52,7 +51,4 @@ function App() {
     </>
   );
 }
-
-
-
 export default App;
