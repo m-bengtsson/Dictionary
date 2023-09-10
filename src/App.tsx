@@ -16,7 +16,7 @@ function App() {
         `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`
       );
       if (resp.status === 404) {
-         setWordInfo([])
+         setWordInfo([]);
          setErrorMessage(
           "Sorry pal, we couldn't find definitions for the word you were looking for."
           );
@@ -35,7 +35,7 @@ function App() {
       setErrorMessage("Please enter a word to search for definitions.");
     } else {
       fetchWord(searchedWord);
-      wordInfo && setErrorMessage("")
+      wordInfo && setErrorMessage("");
     }
   };
 
