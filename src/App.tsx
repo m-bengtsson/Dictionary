@@ -2,6 +2,7 @@ import { useState, ChangeEvent } from "react";
 
 //import "./App.css";
 import WordInfo from "./components/WordInfo";
+import {Container} from "./components/styles/Container";
 
 function App() {
   const [searchedWord, setSearchedWord] = useState("");
@@ -40,14 +41,16 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <Container>
       <h1>Dictionary</h1>
       <input placeholder="search for a word.." onChange={inputHandler} />
       <button onClick={onSubmit}>Search</button>
       {errorMessage && <p>{errorMessage}</p>}
       <WordInfo wordInfo={wordInfo}/>
-    </div>
+    </Container>
   );
 }
+
+
 
 export default App;

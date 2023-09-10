@@ -21,9 +21,20 @@
       ],
       /* Linting */
       "strict": true,
+      "esModuleInterop": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
-      "noFallthroughCasesInSwitch": true
+      "noFallthroughCasesInSwitch": true,
+      "plugins": [
+         {
+            "name": "@styled/typescript-styled-plugin",
+            "tags": [
+               "styled",
+               "css",
+               "sty"
+            ]
+         }
+      ]
    },
    "include": [
       "src"
