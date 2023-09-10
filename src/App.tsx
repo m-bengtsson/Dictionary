@@ -3,7 +3,9 @@ import { useState, ChangeEvent } from "react";
 //import "./App.css";
 import WordInfo from "./components/WordInfo";
 import GlobalStyles from "./components/styles/Global";
-import {Container, StyledInput} from "./components/styles/Container";
+import {Container} from "./components/styles/Container";
+import Input from "./components/Input";
+
 
 
 const theme = {
@@ -55,9 +57,7 @@ function App() {
    <GlobalStyles />
     <Container>
       <h1>Dictionary</h1>
-      <input placeholder="search for a word.." onChange={inputHandler} />
-
-      <button onClick={onSubmit}>Search</button>
+      <Input onSubmit={onSubmit} setSearchedWord={setSearchedWord}/>
       {errorMessage && <p>{errorMessage}</p>}
       <WordInfo wordInfo={wordInfo}/>
     </Container>
