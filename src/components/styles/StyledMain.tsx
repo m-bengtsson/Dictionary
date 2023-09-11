@@ -10,6 +10,7 @@ export const StyledMain = styled.div`
       background-color: #FEFCF7;
       display: flex;
       width: 80%;
+      max-width: 700px;
       padding: 3em;
       border-radius: 6px;
       position: absolute;

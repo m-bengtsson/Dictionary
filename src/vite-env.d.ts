@@ -2,8 +2,8 @@
 
 type Word = {
    word: string;
-   phonetic: Phonetics[];
-   phonetics: string[];
+   phonetic: string;
+   phonetics: Phonetics[];
    origin: string;
    meanings: Meanings[];
 }

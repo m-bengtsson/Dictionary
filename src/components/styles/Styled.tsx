@@ -49,7 +49,9 @@ export const StyledInput = styled.div`
    display: flex;
    align-items: center;
    justify-content: space-between;
-   width: 600px;
+   width: 90%;
+   max-width: 700px;
+   min-width: 500px;
    *{
      // border: 1px dashed blue;
    }
@@ -62,7 +64,7 @@ export const StyledInput = styled.div`
    div{
       background-color: #ffffff;
       border-radius: 100px;
-      position: relative;
+      position: inherit;
       display: flex;
       justify-content: space-around;
    }

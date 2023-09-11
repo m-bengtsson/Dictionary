@@ -3,7 +3,7 @@ import { rest } from "msw";
 import { setupServer } from "msw/node";
 import userEvent from "@testing-library/user-event";
 
-import App from "./App";
+import App from "../App";
 
 // Mocked Server to simulate APi requests
 const server = setupServer(
