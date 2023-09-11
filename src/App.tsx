@@ -4,7 +4,7 @@ import WordInfo from "./components/WordInfo";
 import GlobalStyles from "./components/styles/Global";
 import { Container, TopContainer } from "./components/styles/Styled";
 import Input from "./components/Input";
-import { StyledMain } from "./components/styles/StyledMain";
+import { StyledMainWrapper, StyledMainContainer } from "./components/styles/StyledMain";
 
 function App() {
   const [searchedWord, setSearchedWord] = useState("");
@@ -50,12 +50,12 @@ function App() {
         <h1>Free Dictionary</h1>
         <Input onSubmit={onSubmit} setSearchedWord={setSearchedWord} />
       </Container>
-      <StyledMain>
-        <div>
+      <StyledMainWrapper>
+        <StyledMainContainer>
           {errorMessage && <p>{errorMessage}</p>}
           <WordInfo wordInfo={wordInfo} />
-        </div>
-      </StyledMain>
+        </StyledMainContainer>
+      </StyledMainWrapper>
     </>
   );
 }
