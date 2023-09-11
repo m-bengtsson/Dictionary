@@ -7,13 +7,14 @@ interface WordItemProps {
 function WordItem({word} :WordItemProps ) {
    console.log('word', word)
    
+   // set audio useRef to not trigger rerender when playing audio
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  // If audio exists play audio when button is clicked
   const playAudio = () => {
    if (audioRef.current) {
       audioRef.current.play();
     }
-
   }
 
   return (
