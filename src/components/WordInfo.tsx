@@ -6,11 +6,11 @@ interface WordProps {
 
 function WordInfo({wordInfo} : WordProps) {
   return (
-    <div className="">
+    <>
       {wordInfo.map((word, index) =>(
          <WordItem key={index} word={word}/>
       ) )}
-    </div>
+    </>
   );
 }
 

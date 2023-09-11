@@ -4,6 +4,7 @@ import WordInfo from "./components/WordInfo";
 import GlobalStyles from "./components/styles/Global";
 import { Container, TopContainer } from "./components/styles/Styled";
 import Input from "./components/Input";
+import { StyledMain } from "./components/styles/StyledMain";
 
 function App() {
   const [searchedWord, setSearchedWord] = useState("");
@@ -16,14 +17,14 @@ function App() {
         `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`
       );
       if (resp.status === 404) {
-         setWordInfo([]);
-         setErrorMessage(
+        setWordInfo([]);
+        setErrorMessage(
           "Sorry pal, we couldn't find definitions for the word you were looking for."
-          );
+        );
       } else {
-         const word = await resp.json();
-         
-         setWordInfo(word);
+        const word = await resp.json();
+
+        setWordInfo(word);
       }
     } catch (error) {
       console.log("Failed to fetch data", error);
@@ -40,18 +41,21 @@ function App() {
   };
 
   return (
-   <>
-   <GlobalStyles />
-   <TopContainer>
-      <p> SEARCH AND DISCOVER</p>
-   </TopContainer>
+    <>
+      <GlobalStyles />
+      <TopContainer>
+        <p> SEARCH AND DISCOVER</p>
+      </TopContainer>
       <Container>
-         <h1>Free Dictionary</h1>
-         <Input onSubmit={onSubmit} setSearchedWord={setSearchedWord}/>
+        <h1>Free Dictionary</h1>
+        <Input onSubmit={onSubmit} setSearchedWord={setSearchedWord} />
       </Container>
-
-      {errorMessage && <p>{errorMessage}</p>}
-      <WordInfo wordInfo={wordInfo}/>
+      <StyledMain>
+        <div>
+          {errorMessage && <p>{errorMessage}</p>}
+          <WordInfo wordInfo={wordInfo} />
+        </div>
+      </StyledMain>
     </>
   );
 }

@@ -82,7 +82,11 @@ export const StyledInput = styled.div`
       border-radius: 100px;
       margin: 10px;
       background-color: white;
-
+      color: #ffaa17;
+      font-weight: 400;
+   }
+   button:hover{
+      color: rgb(255, 170, 23, 0.6);
    }
    
 `
