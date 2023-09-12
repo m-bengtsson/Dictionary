@@ -11,12 +11,26 @@ export const StyledMainContainer = styled.div`
    background-color: #FEFCF7;
    width: 90%;
    max-width: 700px;
+   min-width: 480px;
    padding: 3em;
    border-radius: 6px;
    position: absolute;
    height: 70vh;
    top: 350px;
-`
+   `
+   export const StyledWordInfo = styled.div`
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+   
+      && > div{
+         border-bottom: 1px solid #2e3d53;
+         width: 100%;
+         padding: 1em 0 1em 0;
+         display: flex;
+         justify-content: center;
+      }
+   `
 export const StyledWordItem = styled.div`
    display: flex;
    flex-direction: column;

@@ -68,14 +68,14 @@ afterAll(() => server.close());
 it("should display the word 'Dictionary", () => {
   render(<App />);
   // Get the text "Dictionary" and expect it to be visible
-  expect(screen.getByText("Dictionary")).toBeVisible();
+  expect(screen.getByText("Free Dictionary")).toBeVisible();
 });
 
 // Tests if the page displays an error message when user hit search before entering a word.
 it("should display 'Please enter a word to search for definitions.'  when the search button is clicked without entering a word", async () => {
   render(<App />);
 
-  expect(screen.getByText("Dictionary")).toBeVisible();
+  expect(screen.getByText("Free Dictionary")).toBeVisible();
   const searchButton = screen.getByRole("button", {
     name: "Search",
   });

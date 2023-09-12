@@ -1,4 +1,5 @@
 import WordItem from "./WordItem";
+import { StyledWordInfo } from "./styles/StyledMain";
 
 interface WordProps {
   wordInfo: Word[];
@@ -6,11 +7,11 @@ interface WordProps {
 
 function WordInfo({wordInfo} : WordProps) {
   return (
-    <>
+    <StyledWordInfo>
       {wordInfo.map((word, index) =>(
          <WordItem key={index} word={word}/>
       ) )}
-    </>
+    </StyledWordInfo>
   );
 }
 
