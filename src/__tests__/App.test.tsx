@@ -99,6 +99,7 @@ it("should render the searched word 'hello' if it exists", async () => {
   const searchButton = screen.getByRole("button", {
     name: "Search",
   });
+  screen.debug()
   // Wait for user to click on Search-button and expect "hello" to be rendered
   await user.click(searchButton);
   expect(screen.getByText("hello")).toBeInTheDocument();

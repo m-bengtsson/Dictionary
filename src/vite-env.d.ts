@@ -2,15 +2,18 @@
 
 type Word = {
    word: string;
+   meanings: Meanings[];
    phonetic: string;
    phonetics: Phonetics[];
    origin: string;
-   meanings: Meanings[];
+   sourceUrls?: string[];
+   license:? string;
 }
 
 type Phonetics = {
    text: string;
    audio: string;
+   sourceUrls: string;
 }
 
 type Meanings = {

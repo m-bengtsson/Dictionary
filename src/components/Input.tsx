@@ -1,5 +1,5 @@
 import { StyledInput } from "./styles/Styled";
-
+import {IoSearch} from "react-icons/io5"
 interface Props {
   setSearchedWord: React.Dispatch<React.SetStateAction<string>>;
   onSubmit: () => void;
@@ -21,7 +21,7 @@ function Input({ setSearchedWord, onSubmit }: Props) {
           onChange={(e) => setSearchedWord(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-        <button onClick={onSubmit}>Search</button>
+        <IoSearch onClick={onSubmit}/>
       </div>
     </StyledInput>
   );

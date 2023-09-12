@@ -49,9 +49,9 @@ export const StyledInput = styled.div`
    display: flex;
    align-items: center;
    justify-content: space-between;
-   width: 90%;
+   width: 100%;
    max-width: 700px;
-   min-width: 500px;
+   min-width: 400px;
    *{
      // border: 1px dashed blue;
    }
@@ -73,21 +73,23 @@ export const StyledInput = styled.div`
       border: none;
       padding: 10px;
       border-radius: 100px;
-      width: 330px;
+      width: 100%;
+      min-width: 170px;
+      max-width: 400px;
       background-color: none;
       opacity: unset;
    }
-   button{
+   svg{
       outline: none;
       cursor: pointer;
       border: none;
       border-radius: 100px;
-      margin: 10px;
+      margin: 8px;
       background-color: white;
       color: #ffaa17;
-      font-weight: 400;
+      font-size: 1.5em;
    }
-   button:hover{
+   svg:hover{
       color: rgb(255, 170, 23, 0.6);
    }
    
