@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 import userEvent from "@testing-library/user-event";
+import mockedWord from "./mockedWord.json"
 
 import App from "../App";
 
@@ -11,52 +12,14 @@ const server = setupServer(
     "https://api.dictionaryapi.dev/api/v2/entries/en/hello",
     (_req, res, ctx) => {
       return res(
-        ctx.json([
-          {
-            word: "hello",
-            phonetic: "hələʊ",
-            phonetics: [
-              {
-                text: "hələʊ",
-                audio:
-                  "//ssl.gstatic.com/dictionary/static/sounds/20200429/hello--_gb_1.mp3",
-              },
-              {
-                text: "hɛləʊ",
-              },
-            ],
-            origin:
-              "early 19th century: variant of earlier hollo ; related to holla.",
-            meanings: [
-              {
-                partOfSpeech: "exclamation",
-                definitions: [
-                  {
-                    definition:
-                      "used as a greeting or to begin a phone conversation.",
-                    example: "hello there, Katie!",
-                    synonyms: [],
-                    antonyms: [],
-                  },
-                ],
-              },
-              {
-                partOfSpeech: "verb",
-                definitions: [
-                  {
-                    definition: "say or shout.",
-                    example: "I pressed the phone button and helloed",
-                    synonyms: [],
-                    antonyms: [],
-                  },
-                ],
-              },
-            ],
-          },
-        ])
+        ctx.json(mockedWord)
       );
     }
-  )
+  ),
+  rest.get(
+   "https://api.dictionaryapi.dev/api/v2/entries/en/asdfg",(_req, res, ctx)=> {;
+      return res(ctx.status(404));
+   })
 );
 
 beforeAll(() => server.listen());
@@ -75,8 +38,8 @@ it("should display the word 'Dictionary", () => {
 it("should display 'Please enter a word to search for definitions.'  when the search button is clicked without entering a word", async () => {
   render(<App />);
 
-  expect(screen.getByText("Free Dictionary")).toBeVisible();
   const searchIcon = screen.getByLabelText("search-icon");
+  expect(searchIcon).toBeInTheDocument();
   // Wait for user to click on Search-button
   await userEvent.click(searchIcon);
   expect(
@@ -90,6 +53,7 @@ it("should render the searched word 'hello' if it exists", async () => {
   // Make a user to simulate user-activity
   const user = userEvent.setup();
   const input = screen.getByPlaceholderText("search for a word..");
+  expect(input).toBeInTheDocument();
 
   // Wait for user to enter a word
   await user.type(input, "hello");
@@ -100,3 +64,21 @@ it("should render the searched word 'hello' if it exists", async () => {
   await user.click(searchIcon);
   expect(screen.getByText("hello")).toBeInTheDocument();
 });
+
+it("should render 'Sorry pal, we couldn't find definitions for the word you were looking for.'", async() => {
+   render(<App/>)
+     // Make a user to simulate user-activity
+  const user = userEvent.setup();
+  const input = screen.getByPlaceholderText("search for a word..");
+
+  // Wait for user to enter a word
+  await user.type(input, "asdfg");
+
+  const searchIcon = screen.getByLabelText("search-icon");
+  // Wait for user to click on Search-button and expect "hello" to be rendered
+  user.click(searchIcon);
+
+  await waitFor( () => {
+    expect(screen.getByText("Sorry pal, we couldn't find definitions for the word you were looking for.")).toBeInTheDocument();
+  })
+})
