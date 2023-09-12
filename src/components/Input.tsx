@@ -21,7 +21,7 @@ function Input({ setSearchedWord, onSubmit }: Props) {
           onChange={(e) => setSearchedWord(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-        <IoSearch onClick={onSubmit}/>
+        <IoSearch aria-label="search-icon" onClick={onSubmit}/>
       </div>
     </StyledInput>
   );

@@ -76,11 +76,9 @@ it("should display 'Please enter a word to search for definitions.'  when the se
   render(<App />);
 
   expect(screen.getByText("Free Dictionary")).toBeVisible();
-  const searchButton = screen.getByRole("button", {
-    name: "Search",
-  });
+  const searchIcon = screen.getByLabelText("search-icon");
   // Wait for user to click on Search-button
-  await userEvent.click(searchButton);
+  await userEvent.click(searchIcon);
   expect(
     screen.getByText("Please enter a word to search for definitions.")
   ).toBeVisible();
@@ -96,11 +94,9 @@ it("should render the searched word 'hello' if it exists", async () => {
   // Wait for user to enter a word
   await user.type(input, "hello");
 
-  const searchButton = screen.getByRole("button", {
-    name: "Search",
-  });
+  const searchIcon = screen.getByLabelText("search-icon");
   screen.debug()
   // Wait for user to click on Search-button and expect "hello" to be rendered
-  await user.click(searchButton);
+  await user.click(searchIcon);
   expect(screen.getByText("hello")).toBeInTheDocument();
 });
