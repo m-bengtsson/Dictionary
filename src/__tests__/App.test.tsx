@@ -71,13 +71,13 @@ it("should render 'Sorry pal, we couldn't find definitions for the word you were
   const user = userEvent.setup();
   const input = screen.getByPlaceholderText("search for a word..");
 
-  // Wait for user to enter a word
   await user.type(input, "asdfg");
 
   const searchIcon = screen.getByLabelText("search-icon");
-  // Wait for user to click on Search-button and expect "hello" to be rendered
+
   user.click(searchIcon);
 
+  // Wait for api response
   await waitFor( () => {
     expect(screen.getByText("Sorry pal, we couldn't find definitions for the word you were looking for.")).toBeInTheDocument();
   })

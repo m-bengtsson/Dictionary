@@ -1,11 +1,13 @@
 import { StyledInput } from "./styles/Styled";
 import {IoSearch} from "react-icons/io5"
 interface Props {
+  searchedWord: string;
   setSearchedWord: React.Dispatch<React.SetStateAction<string>>;
   onSubmit: () => void;
+
 }
 
-function Input({ setSearchedWord, onSubmit }: Props) {
+function Input({ setSearchedWord, onSubmit, searchedWord }: Props) {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       onSubmit();
@@ -18,6 +20,7 @@ function Input({ setSearchedWord, onSubmit }: Props) {
       <div>
         <input
           placeholder="search for a word.."
+          value={searchedWord}
           onChange={(e) => setSearchedWord(e.target.value)}
           onKeyDown={handleKeyDown}
         />

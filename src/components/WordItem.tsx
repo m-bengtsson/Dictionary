@@ -7,9 +7,7 @@ interface WordItemProps {
 }
 
 function WordItem({ word }: WordItemProps) {
-  console.log("word", word.phonetics);
-
-  // set audio useRef to not trigger rerender when playing audio
+  // Set audio useRef to not trigger rerender when playing audio
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // If audio exists play audio when button is clicked

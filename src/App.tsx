@@ -11,10 +11,10 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [wordInfo, setWordInfo] = useState<Word[]>([]);
 
-  const fetchWord = async (searchWord: string) => {
+  const fetchWord = async () => {
     try {
       const resp = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${searchedWord}`
       );
       if (resp.status === 404) {
         setWordInfo([]);
@@ -24,6 +24,8 @@ function App() {
       } else {
         const word = await resp.json();
         setWordInfo(word);
+         setSearchedWord("");
+
       }
     } catch (error) {
       console.log("Failed to fetch data", error);
@@ -34,7 +36,7 @@ function App() {
     if (!searchedWord) {
       setErrorMessage("Please enter a word to search for definitions.");
     } else {
-      fetchWord(searchedWord);
+      fetchWord();
       wordInfo && setErrorMessage("");
     }
   };
@@ -47,7 +49,7 @@ function App() {
       </TopContainer>
       <Container>
         <h1>Free Dictionary</h1>
-        <Input onSubmit={onSubmit} setSearchedWord={setSearchedWord} />
+        <Input onSubmit={onSubmit} searchedWord={searchedWord} setSearchedWord={setSearchedWord} />
       </Container>
       <StyledMainWrapper>
         <StyledMainContainer>
