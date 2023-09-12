@@ -9,7 +9,7 @@ export const StyledMainWrapper = styled.div`
 export const StyledMainContainer = styled.div`
    display: flex;
    background-color: #FEFCF7;
-   width: 80%;
+   width: 90%;
    max-width: 700px;
    padding: 3em;
    border-radius: 6px;

@@ -23,7 +23,6 @@ function App() {
         );
       } else {
         const word = await resp.json();
-
         setWordInfo(word);
       }
     } catch (error) {
