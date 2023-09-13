@@ -29,8 +29,8 @@ function WordItem({ word }: WordItemProps) {
         </div>
       </div>
       <ul>
-        {word.phonetics.map((phonetic) => (
-          <li>
+        {word.phonetics.map((phonetic, index) => (
+          <li key={index}>
             <p>{phonetic.text}</p>
             {phonetic.audio && (
               <>

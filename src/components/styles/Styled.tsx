@@ -15,6 +15,7 @@ export const Container = styled.div`
    align-items: center;
    position: relative;
 
+
    // Giving the bg image opacity by setting it as a pseudoelement
    &::before {
     content: '';

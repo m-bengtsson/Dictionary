@@ -40,17 +40,17 @@ export const StyledWordItem = styled.div`
    align-items: center;
    ul{
       display: flex;
-      flex-direction: row;
    }
    li {
       display: flex;
-      margin: 4px;
+      margin: 8px;
    }
    
    h3{
       font-size: 1.5em;
    }
-    div > *{
+
+   div > *{
       margin: 2px
    }
 
@@ -58,24 +58,10 @@ export const StyledWordItem = styled.div`
       display: flex;
       align-items: flex-end;
    }
-    div > h3{
-      display: flex;
-      align-items: flex-end;
-   }
-   button{
-      background-color: #FEFCF7;
-      color: orange;
-      cursor: pointer;
-      border: none;
-   }
-
-   button:hover{
-      color: rgb(255, 165, 7, 0.7);
-
-   }
    svg{
       color: #ff891a;
       font-size: 1.3em;
+      margin-left: 4px;
    }
    svg:hover{
       color: rgb(255, 137, 26, 0.6);
