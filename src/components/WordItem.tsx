@@ -8,14 +8,9 @@ interface WordItemProps {
 
 function WordItem({ word }: WordItemProps) {
   // Set audio useRef to not trigger rerender when playing audio
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  // If audio exists play audio when button is clicked
-  const playAudio = () => {
-    console.log("audioref: ", audioRef);
-    if (audioRef.current) {
-      audioRef.current.play();
-    }
+  const playAudio = (audioUrl: string) => {
+   const audioElement = new Audio(audioUrl);
+   audioElement.play();
   };
 
   return (
@@ -32,12 +27,9 @@ function WordItem({ word }: WordItemProps) {
         {word.phonetics.map((phonetic, index) => (
           <li key={index}>
             <p>{phonetic.text}</p>
-            {phonetic.audio && (
-              <>
-                <audio ref={audioRef} src={phonetic.audio} preload="auto" />
-                <AiTwotoneSound onClick={playAudio} aria-label="audio-icon" />
-              </>
-            )}
+            {phonetic.audio && 
+                <AiTwotoneSound onClick={() => playAudio(phonetic.audio)} aria-label="audio-icon" />
+            }
           </li>
         ))}
       </ul>
