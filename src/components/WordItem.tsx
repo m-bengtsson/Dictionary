@@ -12,7 +12,7 @@ function WordItem({ word }: WordItemProps) {
 
   // If audio exists play audio when button is clicked
   const playAudio = () => {
-     console.log('audioref: ', audioRef)
+    console.log("audioref: ", audioRef);
     if (audioRef.current) {
       audioRef.current.play();
     }
@@ -32,8 +32,12 @@ function WordItem({ word }: WordItemProps) {
         {word.phonetics.map((phonetic) => (
           <li>
             <p>{phonetic.text}</p>
-            {phonetic.audio && <><audio ref={audioRef} src={phonetic.audio} preload="auto" />
-            <AiTwotoneSound onClick={playAudio} /></>}
+            {phonetic.audio && (
+              <>
+                <audio ref={audioRef} src={phonetic.audio} preload="auto" />
+                <AiTwotoneSound onClick={playAudio} aria-label="audio-icon" />
+              </>
+            )}
           </li>
         ))}
       </ul>
