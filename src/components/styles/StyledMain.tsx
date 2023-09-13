@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 export const StyledMainWrapper = styled.div`
-   background-color:rgb(121, 122, 150, 0.8) ;
+   background-color:rgb(121, 122, 150, 0.5) ;
    display: flex;
    justify-content: center;
-   height: 70vh ;
+   height: fit-content ;
+   min-height: 70vh;
 `
 export const StyledMainContainer = styled.div`
    display: flex;
@@ -15,7 +16,8 @@ export const StyledMainContainer = styled.div`
    padding: 3em;
    border-radius: 6px;
    position: absolute;
-   height: 70vh;
+   min-height: 70vh;
+   height: min-content;
    top: 350px;
    `
    export const StyledWordInfo = styled.div`

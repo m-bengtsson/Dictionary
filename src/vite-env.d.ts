@@ -25,6 +25,8 @@ type License ={
 type Meanings = {
    partOfSpeech: string;
    definitions: Definitions[];
+   synonyms?: string[];
+   antonyms?: string[];
 }
 
 

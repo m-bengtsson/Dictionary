@@ -19,7 +19,10 @@ const server = setupServer(
     (_req, res, ctx) => {
       return res(ctx.status(404));
     }
-  )
+  ),
+  rest.get("https://api.dictionaryapi.dev/api/v2/entries/en/error", (req, res, ctx) => {
+         return res(ctx.status(500))
+      })
 );
 
 beforeAll(() => server.listen());
@@ -85,8 +88,6 @@ it("should render 'Sorry pal, we couldn't find definitions for the word you were
 });
 
 it("should play sound", async () => {
-  //const mockAudio = vi.spyOn(global, "Audio");
-
   // Mock calling the play method on the audio element
   const playMock = vi.fn();
   vi.spyOn(global.HTMLAudioElement.prototype, "play").mockImplementation(playMock);
@@ -109,3 +110,16 @@ it("should play sound", async () => {
   await user.click(audioIcon);
   expect(playMock).toHaveBeenCalled();
 });
+
+it("should handle internal server error by showing error message'Failed to fetch data'", async() => {
+    render(<App />);
+  const user = userEvent.setup();
+
+  const input = screen.getByPlaceholderText("search for a word..");
+  await user.type(input, "error");
+
+  const searchIcon = screen.getByLabelText("search-icon");
+  await user.click(searchIcon);
+
+ expect(screen.getByText("Failed to fetch data")).toBeInTheDocument();   
+})

@@ -7,7 +7,7 @@ interface Props {
 
 }
 
-function Input({ setSearchedWord, onSubmit, searchedWord }: Props) {
+function Searchbar({ setSearchedWord, onSubmit, searchedWord }: Props) {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       onSubmit();
@@ -30,4 +30,4 @@ function Input({ setSearchedWord, onSubmit, searchedWord }: Props) {
   );
 }
 
-export default Input;
+export default Searchbar;

@@ -1,13 +1,13 @@
 import { StyledWordItem } from "./styles/StyledMain";
 import PhoneticsInfo from "./PhoneticsInfo";
+import MeaningsInfo from "./MeaningsInfo";
 
 interface WordItemProps {
   word: Word;
 }
 
 function WordItem({ word }: WordItemProps) {
-  console.log(word);
-
+  console.log(word.meanings);
 
   return (
     <StyledWordItem>
@@ -20,6 +20,7 @@ function WordItem({ word }: WordItemProps) {
         </div>
       </div>
       <PhoneticsInfo phonetics={word.phonetics}/>
+      <MeaningsInfo meanings={word.meanings}/>
     </StyledWordItem>
   );
 }

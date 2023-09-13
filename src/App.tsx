@@ -3,8 +3,8 @@ import { useState } from "react";
 import WordInfo from "./components/WordInfo";
 import GlobalStyles from "./components/styles/Global";
 import { Container, TopContainer } from "./components/styles/Styled";
-import Input from "./components/Input";
 import { StyledMainWrapper, StyledMainContainer } from "./components/styles/StyledMain";
+import Searchbar from "./components/Searchbar";
 
 function App() {
   const [searchedWord, setSearchedWord] = useState("");
@@ -28,7 +28,7 @@ function App() {
 
       }
     } catch (error) {
-      console.log("Failed to fetch data", error);
+      setErrorMessage("Failed to fetch data");
     }
   };
 
@@ -49,7 +49,7 @@ function App() {
       </TopContainer>
       <Container>
         <h1>Free Dictionary</h1>
-        <Input onSubmit={onSubmit} searchedWord={searchedWord} setSearchedWord={setSearchedWord} />
+        <Searchbar onSubmit={onSubmit} searchedWord={searchedWord} setSearchedWord={setSearchedWord} />
       </Container>
       <StyledMainWrapper>
         <StyledMainContainer>
