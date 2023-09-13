@@ -13,7 +13,13 @@ type Word = {
 type Phonetics = {
    text: string;
    audio: string;
-   sourceUrls: string;
+   sourceUrl: string;
+   license:  License;
+}
+
+type License ={
+   name: string;
+   url: string;
 }
 
 type Meanings = {
