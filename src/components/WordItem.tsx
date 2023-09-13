@@ -7,7 +7,8 @@ interface WordItemProps {
 }
 
 function WordItem({ word }: WordItemProps) {
-  // Set audio useRef to not trigger rerender when playing audio
+  
+   // Creating a new audio element for each audioUrl and calling the play method when icon is clicked
   const playAudio = (audioUrl: string) => {
    const audioElement = new Audio(audioUrl);
    audioElement.play();
@@ -33,6 +34,7 @@ function WordItem({ word }: WordItemProps) {
           </li>
         ))}
       </ul>
+
     </StyledWordItem>
   );
 }
