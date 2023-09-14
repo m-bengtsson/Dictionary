@@ -7,7 +7,7 @@ interface WordItemProps {
 }
 
 function WordItem({ word }: WordItemProps) {
-  console.log(word.meanings);
+  //console.log(word);
 
   return (
     <StyledWordItem>

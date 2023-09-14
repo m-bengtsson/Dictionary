@@ -56,10 +56,6 @@ export const StyledWordItem = styled.div`
       margin: 2px
    }
 
-   div{
-      display: flex;
-      align-items: flex-end;
-   }
    svg{
       color: #ff891a;
       font-size: 1.3em;
@@ -69,4 +65,18 @@ export const StyledWordItem = styled.div`
       color: rgb(255, 137, 26, 0.6);
       cursor: pointer;
    }
+`
+
+export const  StyledMeaningsInfo = styled.div`
+display: flex;
+flex-direction: column;
+
+&& > *{
+   margin: 5px;
+}
+
+.italic{
+   font-style: italic;
+}
+   
 `

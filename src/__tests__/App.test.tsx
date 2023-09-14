@@ -68,7 +68,6 @@ it("should render the searched word 'hello' if it exists", async () => {
 
 it("should render 'Sorry pal, we couldn't find definitions for the word you were looking for.'", async () => {
   render(<App />);
-  // Make a user to simulate user-activity
   const user = userEvent.setup();
 
   const input = screen.getByPlaceholderText("search for a word..");
@@ -87,7 +86,7 @@ it("should render 'Sorry pal, we couldn't find definitions for the word you were
   });
 });
 
-it("should play sound", async () => {
+it("should play sound correctly", async () => {
   // Mock calling the play method on the audio element
   const playMock = vi.fn();
   vi.spyOn(global.HTMLAudioElement.prototype, "play").mockImplementation(playMock);

@@ -10,6 +10,12 @@ type Word = {
    license:? string;
 }
 
+type Meanings = {
+   partOfSpeech: string;
+   definitions: Definitions[];
+   synonyms: string[];
+   antonyms: string[];
+}
 type Phonetics = {
    text: string;
    audio: string;
@@ -22,17 +28,9 @@ type License ={
    url: string;
 }
 
-type Meanings = {
-   partOfSpeech: string;
-   definitions: Definitions[];
-   synonyms?: string[];
-   antonyms?: string[];
-}
-
-
 type Definitions = {
    definition: string;
-   example: string;
+   example?: string;
    synonyms: string[];
    antonyms: string[];
 
