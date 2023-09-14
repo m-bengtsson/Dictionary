@@ -17,6 +17,10 @@ body {
   font-size: 14px
 }
 
+.border-bottom{
+   border-bottom: 1px solid #485062
+}
+
 `
 
 export default GlobalStyles;

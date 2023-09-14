@@ -14,7 +14,7 @@ function PhoneticsInfo({ phonetics }: PhoneticsProps) {
     audioElement.play();
   };
   return (
-    <ul
+    <ul className="phonetics-info"
       onMouseEnter={() => setShowPhoneticsInfo(true)}
       onMouseLeave={() => setShowPhoneticsInfo(false)}
     >

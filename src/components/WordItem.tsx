@@ -7,11 +7,9 @@ interface WordItemProps {
 }
 
 function WordItem({ word }: WordItemProps) {
-  //console.log(word);
-
   return (
     <StyledWordItem>
-      <div>
+      <div className="row">
         <div>
           <h3>{word.word}</h3>
         </div>
