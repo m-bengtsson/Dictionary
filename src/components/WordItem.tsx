@@ -11,20 +11,20 @@ interface WordItemProps {
  * 
  */
 
-function WordItem({ word }: WordItemProps) {
+function WordItem({ word: {word, phonetic, phonetics, meanings, sourceUrls, license} }: WordItemProps) {
   return (
     <StyledWordItem>
       <div className="row">
         <div>
-          <h2>{word.word}</h2>
+          <h2>{word}</h2>
         </div>
         <div>
-          <p>{word.phonetic}</p>
+          <p>{phonetic}</p>
         </div>
       </div>
-      <PhoneticsInfo phonetics={word.phonetics}/>
-      <MeaningsInfo meanings={word.meanings}/>
-      {word.sourceUrls && word.sourceUrls.map(url => <a href={url}>Source</a>)}
+      <PhoneticsInfo phonetics={phonetics}/>
+      <MeaningsInfo meanings={meanings}/>
+      {sourceUrls && sourceUrls.map(url => <a href={url}>Source</a>)}
     </StyledWordItem>
   );
 }
