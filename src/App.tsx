@@ -59,7 +59,7 @@ function App() {
       </Container>
       <StyledMainWrapper>
         <StyledMainContainer>
-          {errorMessage && <p>{errorMessage}</p>}
+          {errorMessage && <p className="error">{errorMessage}</p>}
           {wordInfo.map((word, index) =>(
          <WordItem key={index} word={word}/>
       ) )}
