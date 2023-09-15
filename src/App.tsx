@@ -1,6 +1,5 @@
 import { useState } from "react";
-
-import WordInfo from "./components/WordInfo";
+import WordItem from "./components/WordItem";
 import GlobalStyles from "./components/styles/Global";
 import { Container, TopContainer } from "./components/styles/Styled";
 import { StyledMainWrapper, StyledMainContainer } from "./components/styles/StyledMain";
@@ -59,7 +58,9 @@ function App() {
       <StyledMainWrapper>
         <StyledMainContainer>
           {errorMessage && <p>{errorMessage}</p>}
-          <WordInfo wordInfo={wordInfo} />
+          {wordInfo.map((word, index) =>(
+         <WordItem key={index} word={word}/>
+      ) )}
         </StyledMainContainer>
       </StyledMainWrapper>
     </>
