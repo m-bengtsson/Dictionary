@@ -6,31 +6,33 @@ interface WordItemProps {
   word: Word;
 }
 /**
- * 
+ *
  * Diplays a all the information of a word from the searched word
- * 
+ *
  */
 
-function WordItem({ word: {word, phonetic, phonetics, meanings, sourceUrls, license} }: WordItemProps) {
+function WordItem({
+  word: { word, phonetic, phonetics, meanings, sourceUrls, license },
+}: WordItemProps) {
   return (
-   <>
-    <StyledWordItem className="border-dashed-blue">
-      <div className="row">
-        <div>
-          <h2>{word}</h2>
+    <>
+      <StyledWordItem className="border-dashed-blue">
+        <div className="row">
+          <div>
+            <h2>{word}</h2>
+          </div>
+          <div>
+            <p>{phonetic}</p>
+          </div>
         </div>
+        <PhoneticsInfo phonetics={phonetics} />
+        <MeaningsInfo meanings={meanings} />
+        {sourceUrls && sourceUrls.map((url) => <a href={url}>Source</a>)}
         <div>
-          <p>{phonetic}</p>
+          <a href={license.url}>{license.name}</a>
         </div>
-      </div>
-      <PhoneticsInfo phonetics={phonetics}/>
-      <MeaningsInfo meanings={meanings}/>
-      {sourceUrls && sourceUrls.map(url => <a href={url}>Source</a>)}
-      <div>
-         <a href={license.url}>{license.name}</a>
-      </div>
-    </StyledWordItem>
-    <div className="divider"></div>
+      </StyledWordItem>
+      <div className="divider"></div>
     </>
   );
 }

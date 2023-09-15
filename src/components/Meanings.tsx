@@ -16,7 +16,7 @@ function MeaningsInfo({ meanings }: MeaningsProps) {
         ({ partOfSpeech, definitions, synonyms, antonyms }, index) => (
           <div className="part-of-speech">
             <p className="italic" key={index}>
-              {index +1}. {partOfSpeech}
+              {index + 1}. {partOfSpeech}
             </p>
             {synonyms.length > 0 && (
               <>
@@ -38,7 +38,7 @@ function MeaningsInfo({ meanings }: MeaningsProps) {
                 </ul>
               </>
             )}
-            <DefinitionsInfo definitions={definitions}/>
+            <DefinitionsInfo definitions={definitions} />
           </div>
         )
       )}

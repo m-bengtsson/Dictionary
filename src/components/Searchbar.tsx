@@ -1,10 +1,9 @@
 import { StyledInput } from "./styles/StyledHeader";
-import {IoSearch} from "react-icons/io5"
+import { IoSearch } from "react-icons/io5";
 interface Props {
   searchedWord: string;
   setSearchedWord: React.Dispatch<React.SetStateAction<string>>;
   onSubmit: () => void;
-
 }
 
 function Searchbar({ setSearchedWord, onSubmit, searchedWord }: Props) {
@@ -24,7 +23,7 @@ function Searchbar({ setSearchedWord, onSubmit, searchedWord }: Props) {
           onChange={(e) => setSearchedWord(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-        <IoSearch aria-label="search-icon" onClick={onSubmit}/>
+        <IoSearch aria-label="search-icon" onClick={onSubmit} />
       </div>
     </StyledInput>
   );
