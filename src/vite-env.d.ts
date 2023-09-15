@@ -3,9 +3,9 @@
 type Word = {
    word: string;
    meanings: Meanings[];
-   phonetic: string;
+   phonetic?: string;
    phonetics: Phonetics[];
-   origin: string;
+   origin?: string;
    sourceUrls?: string[];
    license: License;
 }

@@ -2,9 +2,10 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 import userEvent from "@testing-library/user-event";
-import mockedWord from "./mockedWord.json";
 
+import mockedWord from "./mockedWord.json";
 import App from "../App";
+import Searchbar from "../components/Searchbar";
 
 // Mocked Server to simulate APi requests
 const server = setupServer(
@@ -122,3 +123,11 @@ it("should handle internal server error by showing error message'Failed to fetch
 
  expect(screen.getByText("Failed to fetch data")).toBeInTheDocument();   
 })
+
+
+it("should render searchbar with placeholder text 'search for a word..' when there is no input", () => {
+    render(<Searchbar searchedWord="" setSearchedWord={() => {}} onSubmit={() => {}} />);
+    const inputElement = screen.getByPlaceholderText("search for a word..");
+    expect(inputElement).toBeInTheDocument();
+  });
+
