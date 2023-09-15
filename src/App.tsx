@@ -1,9 +1,11 @@
 import { useState } from "react";
+
+
 import WordItem from "./components/WordItem";
-import GlobalStyles from "./components/styles/Global";
-import { Container, TopContainer } from "./components/styles/Styled";
-import { StyledMainWrapper, StyledMainContainer } from "./components/styles/StyledMain";
 import Searchbar from "./components/Searchbar";
+import GlobalStyles from "./components/styles/Global";
+import { Container, TopContainer } from "./components/styles/StyledHeader";
+import { StyledMainWrapper, StyledMainContainer } from "./components/styles/StyledMain";
 
 /**
  * 

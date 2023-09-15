@@ -1,4 +1,4 @@
-import { StyledInput } from "./styles/Styled";
+import { StyledInput } from "./styles/StyledHeader";
 import {IoSearch} from "react-icons/io5"
 interface Props {
   searchedWord: string;
