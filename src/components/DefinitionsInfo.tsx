@@ -9,9 +9,9 @@ function DefinitionsInfo({ definitions }: DefinitionsProps) {
   return (
     <>
       <h4>Definitions: </h4>
-      {definitions.map(({ definition, example, synonyms, antonyms }) => (
+      {definitions.map(({ definition, example, synonyms, antonyms }, index) => (
         <div className="border-bottom">
-          <p>* {definition}</p>
+          <p>{index +1}. {definition}</p>
           {example && (
             <>
               <h4>Example: </h4>

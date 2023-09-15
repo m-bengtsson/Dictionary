@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledMainWrapper = styled.div`
-  background-color: rgb(121, 122, 150, 0.5);
+  background-color: rgb(140, 153, 181);
   display: flex;
   justify-content: center;
   height: fit-content;
@@ -42,8 +42,7 @@ export const StyledWordInfo = styled.div`
 export const StyledWordItem = styled.div`
   display: flex;
   align-items: center;
-  background-color: #c3db96;
-  margin-top: 20px;
+  margin-top: 10px;
 
   .phonetics-info,
   .phonetics-info > li {
@@ -64,6 +63,7 @@ export const StyledWordItem = styled.div`
   svg:hover {
     color: rgb(255, 137, 26, 0.6);
     cursor: pointer;
+    transition: 0.2s;
   }
 `;
 
@@ -71,8 +71,20 @@ export const StyledMeaningsInfo = styled.div`
   display: flex;
   flex-direction: column;
 
+  margin: em 0;
+
   h4 {
-    margin-top: 1.5em;
+    margin-top: 1em;
+  }
+  .part-of-speech{
+   display: flex;
+   flex-direction: column;
+   padding: 2em 0;
+   align-items: flex-start;
+   justify-content: center;
+   
+   border-bottom: 1px solid orange;
+
   }
 
   .synonyms {

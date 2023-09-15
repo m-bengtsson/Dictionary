@@ -6,7 +6,7 @@ interface WordProps {
 }
 
 /**
- * Displays all the information result from the searched word
+ * Displays the whole information result from the searched word
  */
 
 function WordInfo({wordInfo} : WordProps) {

@@ -17,9 +17,7 @@ body {
   font-size: 14px
 }
 
-.border-bottom{
-   border-bottom: 1px solid #485062
-}
+
 
 h2{
    font-size: 2em;
@@ -28,8 +26,9 @@ h2{
 h3{
    font-size: 1.5em;
 }
-
-
+h4{
+   font-size: 1em;
+}
 `
 
 export default GlobalStyles;

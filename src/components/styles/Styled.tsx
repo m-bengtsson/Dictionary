@@ -44,7 +44,7 @@ export const Container = styled.div`
 `
 
 export const StyledInput = styled.div`
-   background-color: rgb(121, 122, 150, 0.7) ;
+   background-color: rgb(93, 109, 143, 0.7) ;
    padding: 1em;
    border-radius: 100px;
    display: flex;
@@ -53,9 +53,6 @@ export const StyledInput = styled.div`
    width: 100%;
    max-width: 700px;
    min-width: 400px;
-   *{
-     // border: 1px dashed blue;
-   }
    
    p{
       font-weight: 600;
@@ -89,6 +86,7 @@ export const StyledInput = styled.div`
       background-color: white;
       color: #ffaa17;
       font-size: 1.5em;
+      transition: 0.2s;
    }
    svg:hover{
       color: rgb(255, 170, 23, 0.6);

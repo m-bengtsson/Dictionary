@@ -12,13 +12,12 @@ interface MeaningsProps {
 function MeaningsInfo({ meanings }: MeaningsProps) {
   return (
     <StyledMeaningsInfo>
-      <h3>Meanings</h3>
       {meanings.map(
         ({ partOfSpeech, definitions, synonyms, antonyms }, index) => (
-          <>
-            <h4 className="italic" key={index}>
+          <div className="part-of-speech">
+            <p className="italic" key={index}>
               {index +1}. {partOfSpeech}
-            </h4>
+            </p>
             {synonyms.length > 0 && (
               <>
                 <h4>Synonyms:</h4>
@@ -40,7 +39,7 @@ function MeaningsInfo({ meanings }: MeaningsProps) {
               </>
             )}
             <DefinitionsInfo definitions={definitions}/>
-          </>
+          </div>
         )
       )}
     </StyledMeaningsInfo>
