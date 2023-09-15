@@ -13,6 +13,7 @@ interface WordItemProps {
 
 function WordItem({ word: {word, phonetic, phonetics, meanings, sourceUrls, license} }: WordItemProps) {
   return (
+   <>
     <StyledWordItem className="border-dashed-blue">
       <div className="row">
         <div>
@@ -29,6 +30,8 @@ function WordItem({ word: {word, phonetic, phonetics, meanings, sourceUrls, lice
          <a href={license.url}>{license.name}</a>
       </div>
     </StyledWordItem>
+    <div className="divider"></div>
+    </>
   );
 }
 

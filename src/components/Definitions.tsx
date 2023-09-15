@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { StyledDefinitions } from "./styles/StyledMain";
 
 interface DefinitionsProps {
@@ -8,11 +9,24 @@ interface DefinitionsProps {
  */ 
 
 function DefinitionsInfo({ definitions }: DefinitionsProps) {
+
+   const [showAll, setShowAll] = useState(false);
+
+  const toggleShow = () => {
+    setShowAll(!showAll);
+  };
+
+  const displayedDefinitions = showAll ? definitions : definitions.slice(0, 2);
+
   return (
     <>
+    <div className="definitions-button-container">
       <h4>Definitions: </h4>
+
+
+    </div>
       <ul>
-      {definitions.map(({ definition, example, synonyms, antonyms }, index) => (
+      {displayedDefinitions.map(({ definition, example, synonyms, antonyms }, index) => (
         <StyledDefinitions key={index}>
           <p>* {definition}</p>
           {example && (
@@ -43,7 +57,12 @@ function DefinitionsInfo({ definitions }: DefinitionsProps) {
           )}
         </StyledDefinitions>
           ))}
-          </ul>
+      </ul>
+            {definitions.length > 3 && (
+        <button className="show-more-less" onClick={toggleShow}>
+          {showAll ? "Show Less" : "Show More"}
+        </button>
+      )}
     </>
   );
 }
