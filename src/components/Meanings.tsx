@@ -1,4 +1,4 @@
-import DefinitionsInfo from "./DefinitionsInfo";
+import DefinitionsInfo from "./Definitions";
 import { StyledMeaningsInfo } from "./styles/StyledMain";
 
 interface MeaningsProps {

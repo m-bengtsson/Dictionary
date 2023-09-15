@@ -42,7 +42,6 @@ function DefinitionsInfo({ definitions }: DefinitionsProps) {
             </div>
           )}
         </StyledDefinitions>
-          
           ))}
           </ul>
     </>

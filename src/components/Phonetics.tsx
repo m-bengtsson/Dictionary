@@ -12,7 +12,9 @@ interface PhoneticsProps {
  */
 
 function PhoneticsInfo({ phonetics }: PhoneticsProps) {
-  const [hoveredPhoneticIndex, setHoveredPhoneticsIndex] = useState<number | null>(null);
+  const [hoveredPhoneticIndex, setHoveredPhoneticsIndex] = useState<
+    number | null
+  >(null);
 
   const playAudio = (audioUrl: string) => {
     const audioElement = new Audio(audioUrl);
@@ -33,13 +35,13 @@ function PhoneticsInfo({ phonetics }: PhoneticsProps) {
               aria-label="audio-icon"
             />
           )}
-          {hoveredPhoneticIndex === index &&  (
-            license || sourceUrl ? (
-            <div className="phonetics-audio-info">
-             <a href={license.url}>{license.name}</a>
-             <a href={sourceUrl}>Source</a>
-            </div> ): null
-          )}
+          {hoveredPhoneticIndex === index &&
+            (license || sourceUrl ? (
+              <div className="phonetics-audio-info">
+                <a href={license.url}>{license.name}</a>
+                <a href={sourceUrl}>Source</a>
+              </div>
+            ) : null)}
         </li>
       ))}
     </ul>

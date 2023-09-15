@@ -1,6 +1,6 @@
 import { StyledWordItem } from "./styles/StyledMain";
-import PhoneticsInfo from "./PhoneticsInfo";
-import MeaningsInfo from "./MeaningsInfo";
+import PhoneticsInfo from "./Phonetics";
+import MeaningsInfo from "./Meanings";
 
 interface WordItemProps {
   word: Word;
