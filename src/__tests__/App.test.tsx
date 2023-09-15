@@ -21,9 +21,12 @@ const server = setupServer(
       return res(ctx.status(404));
     }
   ),
-  rest.get("https://api.dictionaryapi.dev/api/v2/entries/en/error", (req, res, ctx) => {
-         return res(ctx.status(500))
-      })
+  rest.get(
+    "https://api.dictionaryapi.dev/api/v2/entries/en/error",
+    (req, res, ctx) => {
+      return res(ctx.status(500));
+    }
+  )
 );
 
 beforeAll(() => server.listen());
@@ -49,8 +52,8 @@ it("should display 'Please enter a word to search for definitions.'  when the se
   ).toBeVisible();
 });
 
-// Tests if the searched word is displayed when submitting an existing word from the API
-it("should render the searched word 'hello' if it exists", async () => {
+// Tests if the searched word is displayed when submitting an existing word from the API. The properties tested are word, definition, phonetic, and partOfScpeech
+it("should render the searched word 'hello' and some of its properties", async () => {
   render(<App />);
   // Make a user to simulate user-activity
   const user = userEvent.setup();
@@ -58,13 +61,30 @@ it("should render the searched word 'hello' if it exists", async () => {
   const input = screen.getByPlaceholderText("search for a word..");
   expect(input).toBeInTheDocument();
 
+  await user.type(input, "hello");
+  const searchIcon = screen.getByLabelText("search-icon");
+
+  await user.click(searchIcon);
+  expect(screen.getByText("hello")).toBeInTheDocument();
+  expect(screen.getByText("greeting")).toBeInTheDocument();
+  expect(screen.getByText("/həˈləʊ/")).toBeInTheDocument();
+  expect(screen.getByText("1. noun")).toBeInTheDocument();
+  expect(screen.getByText('* "Hello!" or an equivalent greeting.')).toBeInTheDocument();
+
+});
+
+it("should clear the input when submittet search", async () => {
+  render(<App />);
+  const user = userEvent.setup();
+
+  const input = screen.getByPlaceholderText("search for a word..");
   // Wait for user to enter a word
   await user.type(input, "hello");
 
   const searchIcon = screen.getByLabelText("search-icon");
 
   await user.click(searchIcon);
-  expect(screen.getByText("hello")).toBeInTheDocument();
+  expect(input).toHaveValue("");
 });
 
 it("should render 'Sorry pal, we couldn't find definitions for the word you were looking for.'", async () => {
@@ -87,10 +107,12 @@ it("should render 'Sorry pal, we couldn't find definitions for the word you were
   });
 });
 
-it("should play sound correctly", async () => {
+it("should play the audio correctly", async () => {
   // Mock calling the play method on the audio element
   const playMock = vi.fn();
-  vi.spyOn(global.HTMLAudioElement.prototype, "play").mockImplementation(playMock);
+  vi.spyOn(global.HTMLAudioElement.prototype, "play").mockImplementation(
+    playMock
+  );
 
   render(<App />);
   const user = userEvent.setup();
@@ -111,8 +133,8 @@ it("should play sound correctly", async () => {
   expect(playMock).toHaveBeenCalled();
 });
 
-it("should handle internal server error by showing error message'Failed to fetch data'", async() => {
-    render(<App />);
+it("should handle internal server error by showing error message'Failed to fetch data'", async () => {
+  render(<App />);
   const user = userEvent.setup();
 
   const input = screen.getByPlaceholderText("search for a word..");
@@ -121,13 +143,13 @@ it("should handle internal server error by showing error message'Failed to fetch
   const searchIcon = screen.getByLabelText("search-icon");
   await user.click(searchIcon);
 
- expect(screen.getByText("Failed to fetch data")).toBeInTheDocument();   
-})
-
+  expect(screen.getByText("Failed to fetch data")).toBeInTheDocument();
+});
 
 it("should render searchbar with placeholder text 'search for a word..' when there is no input", () => {
-    render(<Searchbar searchedWord="" setSearchedWord={() => {}} onSubmit={() => {}} />);
-    const inputElement = screen.getByPlaceholderText("search for a word..");
-    expect(inputElement).toBeInTheDocument();
-  });
-
+  render(
+    <Searchbar searchedWord="" setSearchedWord={() => {}} onSubmit={() => {}} />
+  );
+  const inputElement = screen.getByPlaceholderText("search for a word..");
+  expect(inputElement).toBeInTheDocument();
+});
