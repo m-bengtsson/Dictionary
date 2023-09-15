@@ -22,7 +22,6 @@ export const StyledMainContainer = styled.div`
   width: 100%;
 
   && > div {
-    border-bottom: 1px solid #2e3d53;
     position: relative;
     width: 100%;
     padding: 1em 0 1em 0;
@@ -36,17 +35,16 @@ export const StyledMainContainer = styled.div`
     align-items: baseline;
   }
 `;
-export const StyledWordInfo = styled.div`
+export const StyledWordResult = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
 
   && > div {
-    border-bottom: 1px solid #2e3d53;
+     display: flex;
     position: relative;
     width: 100%;
     padding: 1em 0 1em 0;
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -60,6 +58,7 @@ export const StyledWordItem = styled.div`
   display: flex;
   align-items: center;
   margin-top: 10px;
+  width: 100%;
 
   .phonetics-info,
   .phonetics-info > li {
@@ -95,6 +94,7 @@ export const StyledWordItem = styled.div`
 export const StyledMeaningsInfo = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   margin: em 0;
 
@@ -108,6 +108,7 @@ export const StyledMeaningsInfo = styled.div`
    align-items: flex-start;
    justify-content: center;
    border-bottom: 1px solid orange;
+   width: 100%;
   }
 
   .synonyms {
