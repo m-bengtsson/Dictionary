@@ -39,9 +39,9 @@ h4{
    font-size: 1em;
 }
 
-.border-dashed-blue{
+/* .border-dashed-blue{
    border: 2px dashed blue;
-}
+} */
 `
 
 export default GlobalStyles;
