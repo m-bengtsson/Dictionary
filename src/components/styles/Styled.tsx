@@ -55,11 +55,14 @@ export const StyledInput = styled.div`
    min-width: 400px;
    
    p{
+      margin-left: 1em;
       font-weight: 600;
       font-size: 14px;
+      width: 200px;
    }
 
    div{
+      flex: 2;
       background-color: #ffffff;
       border-radius: 100px;
       position: inherit;

@@ -6,26 +6,26 @@ interface PhoneticsProps {
 }
 
 /**
- * 
+ *
  * Diplays the phonetics and the audio element as well as handling the audio play function, creating a new audio element for each audioUrl and calling the play method when icon is clicked. A textbox of the phonetics sources and license are displayed on the phonetic "onMouseEnter" and removed "onMouseLeave".
- * 
+ *
  */
 
 function PhoneticsInfo({ phonetics }: PhoneticsProps) {
-  const [showPhoneticsInfo, setShowPhoneticsInfo] = useState(false);
+  const [hoveredPhoneticIndex, setHoveredPhoneticsIndex] = useState<number | null>(null);
 
-  // Creating a new audio element for each audioUrl and calling the play method when icon is clicked
   const playAudio = (audioUrl: string) => {
     const audioElement = new Audio(audioUrl);
     audioElement.play();
   };
   return (
-    <ul className="phonetics-info"
-      onMouseEnter={() => setShowPhoneticsInfo(true)}
-      onMouseLeave={() => setShowPhoneticsInfo(false)}
-    >
-      {phonetics.map(({text, audio, license, sourceUrl}, index) => (
-        <li key={index}>
+    <ul className="phonetics-info">
+      {phonetics.map(({ text, audio, license, sourceUrl }, index) => (
+        <li
+          onMouseEnter={() => setHoveredPhoneticsIndex(index)}
+          onMouseLeave={() => setHoveredPhoneticsIndex(null)}
+          key={index}
+        >
           <p>{text}</p>
           {audio && (
             <AiTwotoneSound
@@ -33,13 +33,12 @@ function PhoneticsInfo({ phonetics }: PhoneticsProps) {
               aria-label="audio-icon"
             />
           )}
-          {showPhoneticsInfo && (
-            <div className="phonetics-hover">
-              {license && (
-                <a href={license.url}>{license.name}</a>
-              )}
-              {sourceUrl && <a href={sourceUrl}>Source</a>}
-            </div>
+          {hoveredPhoneticIndex === index &&  (
+            license || sourceUrl ? (
+            <div className="phonetics-audio-info">
+             <a href={license.url}>{license.name}</a>
+             <a href={sourceUrl}>Source</a>
+            </div> ): null
           )}
         </li>
       ))}

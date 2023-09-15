@@ -67,6 +67,14 @@ export const StyledWordItem = styled.div`
     margin: 8px 8px 8px 2px;
   }
 
+  .phonetics-audio-info{
+   border: 1px solid gray;
+   border-radius: 2px;
+   padding: 5px;
+   position: absolute;
+   top: 90px;
+   background-color: white;
+  }
 
   div > * {
     margin: 2px;

@@ -19,6 +19,7 @@ body {
 
 a{
    color: #ff962d;
+   text-decoration: none;
    
 }
 a:hover{
