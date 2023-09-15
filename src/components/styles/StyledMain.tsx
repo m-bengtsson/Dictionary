@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledMainWrapper = styled.div`
-  background-color: rgb(140, 153, 181);
+  background-color: rgb(163, 177, 204);
   display: flex;
   justify-content: center;
   height: fit-content;
@@ -18,6 +18,23 @@ export const StyledMainContainer = styled.div`
   min-height: 70vh;
   height: min-content;
   margin-top: 2em;
+  flex-direction: column;
+  width: 100%;
+
+  && > div {
+    border-bottom: 1px solid #2e3d53;
+    position: relative;
+    width: 100%;
+    padding: 1em 0 1em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
 `;
 export const StyledWordInfo = styled.div`
   display: flex;
@@ -82,9 +99,7 @@ export const StyledMeaningsInfo = styled.div`
    padding: 2em 0;
    align-items: flex-start;
    justify-content: center;
-   
    border-bottom: 1px solid orange;
-
   }
 
   .synonyms {
@@ -101,3 +116,13 @@ export const StyledMeaningsInfo = styled.div`
     font-style: italic;
   }
 `;
+
+
+export const StyledDefinitions = styled.li`
+   padding: 0.5em 0;
+
+   && > div{
+      margin: 0.5em;
+   }
+
+`

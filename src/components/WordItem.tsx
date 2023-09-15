@@ -25,6 +25,9 @@ function WordItem({ word: {word, phonetic, phonetics, meanings, sourceUrls, lice
       <PhoneticsInfo phonetics={phonetics}/>
       <MeaningsInfo meanings={meanings}/>
       {sourceUrls && sourceUrls.map(url => <a href={url}>Source</a>)}
+      <div>
+         <a href={license.url}>{license.name}</a>
+      </div>
     </StyledWordItem>
   );
 }

@@ -1,41 +1,50 @@
+import { StyledDefinitions } from "./styles/StyledMain";
+
 interface DefinitionsProps {
   definitions: Definitions[];
 }
 /**
- * Displays the definitions result
+ * Displays the definitions result part of meanings
  */ 
 
 function DefinitionsInfo({ definitions }: DefinitionsProps) {
   return (
     <>
       <h4>Definitions: </h4>
+      <ul>
       {definitions.map(({ definition, example, synonyms, antonyms }, index) => (
-        <div className="border-bottom">
-          <p>{index +1}. {definition}</p>
+        <StyledDefinitions key={index}>
+          <p>* {definition}</p>
           {example && (
-            <>
-              <h4>Example: </h4>
-              {<p>{example}</p>}
-            </>
+            <div className="example">
+              <h5>Example: </h5>
+              <p className="italic">"{example}"</p>
+            </div>
           )}
           {synonyms.length > 0 && (
-            <>
-              <h4>Synonyms: </h4>
+             <div>
+              <h5>Synonyms: </h5>
+              <ul>
               {synonyms.map((synonym) => (
-                <p>{synonym}</p>
-              ))}
-            </>
+                 <li>{synonym}</li>
+                 ))}
+              </ul>
+            </div>
           )}
           {antonyms.length > 0 && (
-            <>
-              <h4>Antonyms: </h4>
+             <div>
+              <h5>Antonyms: </h5>
+              <ul>
               {antonyms.map((antonym) => (
-                <p>{antonym}</p>
-              ))}
-            </>
+                 <li>{antonym}</li>
+                 ))}
+              </ul>
+            </div>
           )}
-        </div>
-      ))}
+        </StyledDefinitions>
+          
+          ))}
+          </ul>
     </>
   );
 }

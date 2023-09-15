@@ -7,7 +7,7 @@ type Word = {
    phonetics: Phonetics[];
    origin: string;
    sourceUrls?: string[];
-   license:? string;
+   license: License;
 }
 
 type Meanings = {

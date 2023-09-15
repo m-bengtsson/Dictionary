@@ -12,11 +12,11 @@ interface WordProps {
 function WordInfo({wordInfo} : WordProps) {
    console.log(wordInfo)
   return (
-    <StyledWordInfo>
+    <>
       {wordInfo.map((word, index) =>(
          <WordItem key={index} word={word}/>
       ) )}
-    </StyledWordInfo>
+    </>
   );
 }
 

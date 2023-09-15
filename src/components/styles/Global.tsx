@@ -17,7 +17,15 @@ body {
   font-size: 14px
 }
 
+a{
+   color: #ff962d;
+   
+}
+a:hover{
+   color: rgb(197, 105, 0);
+   transition: 0.2s;
 
+}
 
 h2{
    font-size: 2em;

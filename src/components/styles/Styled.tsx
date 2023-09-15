@@ -44,7 +44,7 @@ export const Container = styled.div`
 `
 
 export const StyledInput = styled.div`
-   background-color: rgb(93, 109, 143, 0.7) ;
+   background-color: rgb(139, 160, 204, 0.6) ;
    padding: 1em;
    border-radius: 100px;
    display: flex;
