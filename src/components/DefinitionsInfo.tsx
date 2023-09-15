@@ -1,6 +1,9 @@
 interface DefinitionsProps {
   definitions: Definitions[];
 }
+/**
+ * Displays the definitions result
+ */ 
 
 function DefinitionsInfo({ definitions }: DefinitionsProps) {
   return (

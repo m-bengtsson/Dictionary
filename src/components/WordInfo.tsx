@@ -5,6 +5,10 @@ interface WordProps {
   wordInfo: Word[];
 }
 
+/**
+ * Displays all the information result from the searched word
+ */
+
 function WordInfo({wordInfo} : WordProps) {
    console.log(wordInfo)
   return (

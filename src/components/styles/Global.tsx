@@ -21,6 +21,15 @@ body {
    border-bottom: 1px solid #485062
 }
 
+h2{
+   font-size: 2em;
+}
+
+h3{
+   font-size: 1.5em;
+}
+
+
 `
 
 export default GlobalStyles;

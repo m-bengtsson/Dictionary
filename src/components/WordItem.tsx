@@ -5,13 +5,18 @@ import MeaningsInfo from "./MeaningsInfo";
 interface WordItemProps {
   word: Word;
 }
+/**
+ * 
+ * Diplays a all the information of a word from the searched word
+ * 
+ */
 
 function WordItem({ word }: WordItemProps) {
   return (
     <StyledWordItem>
       <div className="row">
         <div>
-          <h3>{word.word}</h3>
+          <h2>{word.word}</h2>
         </div>
         <div>
           <p>{word.phonetic}</p>
@@ -19,6 +24,7 @@ function WordItem({ word }: WordItemProps) {
       </div>
       <PhoneticsInfo phonetics={word.phonetics}/>
       <MeaningsInfo meanings={word.meanings}/>
+      {word.sourceUrls && word.sourceUrls.map(url => <a href={url}>Source</a>)}
     </StyledWordItem>
   );
 }

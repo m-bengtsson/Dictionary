@@ -42,6 +42,8 @@ export const StyledWordInfo = styled.div`
 export const StyledWordItem = styled.div`
   display: flex;
   align-items: center;
+  background-color: #c3db96;
+  margin-top: 20px;
 
   .phonetics-info,
   .phonetics-info > li {
@@ -49,9 +51,6 @@ export const StyledWordItem = styled.div`
     margin: 8px 8px 8px 2px;
   }
 
-  h3 {
-    font-size: 1.5em;
-  }
 
   div > * {
     margin: 2px;

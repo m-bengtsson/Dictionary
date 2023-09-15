@@ -6,6 +6,11 @@ import { Container, TopContainer } from "./components/styles/Styled";
 import { StyledMainWrapper, StyledMainContainer } from "./components/styles/StyledMain";
 import Searchbar from "./components/Searchbar";
 
+/**
+ * 
+ * The App component renders everything that is visible on the page. It is responsible for the api requests and handles the query for the searsched word.
+ */
+
 function App() {
   const [searchedWord, setSearchedWord] = useState("");
   const [errorMessage, setErrorMessage] = useState("");

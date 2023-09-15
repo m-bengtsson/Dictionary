@@ -5,15 +5,20 @@ interface MeaningsProps {
   meanings: Meanings[];
 }
 
+/**
+ * Displays the meanings of the searched word
+ **/
+
 function MeaningsInfo({ meanings }: MeaningsProps) {
   return (
     <StyledMeaningsInfo>
+      <h3>Meanings</h3>
       {meanings.map(
         ({ partOfSpeech, definitions, synonyms, antonyms }, index) => (
           <>
-            <p className="italic" key={index}>
-              {partOfSpeech}
-            </p>
+            <h4 className="italic" key={index}>
+              {index +1}. {partOfSpeech}
+            </h4>
             {synonyms.length > 0 && (
               <>
                 <h4>Synonyms:</h4>
