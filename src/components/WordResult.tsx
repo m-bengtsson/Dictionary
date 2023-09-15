@@ -1,5 +1,4 @@
 import WordItem from "./WordItem";
-import { StyledWordInfo } from "./styles/StyledMain";
 
 interface WordProps {
   wordInfo: Word[];
