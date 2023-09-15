@@ -32,14 +32,12 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-// Tests if header "Dictionary" is visible on the page
 it("should display the word 'Dictionary", () => {
   render(<App />);
   // Get the text "Dictionary" and expect it to be visible
   expect(screen.getByText("Free Dictionary")).toBeVisible();
 });
 
-// Tests if the page displays an error message when user hit search before entering a word.
 it("should display 'Please enter a word to search for definitions.'  when the search button is clicked without entering a word", async () => {
   render(<App />);
 
@@ -73,12 +71,11 @@ it("should render the searched word 'hello' and some of its properties", async (
 
 });
 
-it("should clear the input when submittet search", async () => {
+it("should clear the input when a search has been made", async () => {
   render(<App />);
   const user = userEvent.setup();
 
   const input = screen.getByPlaceholderText("search for a word..");
-  // Wait for user to enter a word
   await user.type(input, "hello");
 
   const searchIcon = screen.getByLabelText("search-icon");
@@ -87,6 +84,7 @@ it("should clear the input when submittet search", async () => {
   expect(input).toHaveValue("");
 });
 
+// Test displaying error message when searching a word that is not in the api
 it("should render 'Sorry pal, we couldn't find definitions for the word you were looking for.'", async () => {
   render(<App />);
   const user = userEvent.setup();
